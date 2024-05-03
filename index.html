@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Application Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            color: #402e1c;
+            text-align: center;
+            margin-top: 250px;
+            background-image: url(VOTE.png);
+        }
+        h1 {
+            font-size: 50px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        button {
+            background-color: #402e1c;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 25px;
+        }
+        button:hover {
+            background-color: #8e6a3e;
+        }
+    </style>
+</head>
+<body>
+    <h1>Decentralized Voting Application</h1>
+
+    <button id="voteButton">Let's Vote</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('voteButton').onclick = function() {
+                window.location.href = 'vote.html';
+            };
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To Do Decentralized Application</title>
+    <script src="main.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.1.umd.min.js"
+        type="application/javascript"></script>
+	<title>Voting DAPP</title>
+	<style>
+		.notification {
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.success {
+ /* Green */
+    color: #563a20;
+	font-size:25px;
+	font-style: italic;
+}
+		button {
+			background-color: #e7b467;
+			color: rgb(65, 48, 36);
+			padding: 12px 24px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 20px;
+			font-weight: bold;
+			display: block;
+			margin: 50px auto 0;
+		}
+
+		button:hover {
+			background-color: #8e6a3e;
+		}
+
+		/* Paragraph styles */
+		p {
+			text-align: center;
+			font-size: 20px;
+			margin-top: 50px;
+		}
+
+
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			margin-top: 50px;
+		}
+		
+		input[type=text], select {
+			width: 30%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 2px solid #563a20;
+			border-radius: 4px;
+		}
+		
+        input[type=number], select {
+			width: 30%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 2px solid #563a20;
+			border-radius: 4px;
+			font-size: 18px;
+		}
+
+		input[type=submit] {
+			background-color: #563a20;
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+		
+		input[type=submit]:hover {
+			background-color: #563a20;
+		}
+		
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			margin-top: 50px;
+			font-size: 40px;
+		}
+
+		.vote {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			margin-top: 50px;
+			font-size: 30px;
+		}
+		
+		span {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+/* Style the navigation bar */
+		.navbar {
+			overflow: hidden;
+			background-color: #e7b467;
+			font-family: Arial;
+		}
+
+		/* Style the links inside the navigation bar */
+		.navbar a {
+			float: left;
+			display: block;
+			color: #563a20;
+			text-align: center;
+			padding: 14px 20px;
+			text-decoration: none;
+			font-weight: bolder;
+			font-size: 20px;
+		}
+
+		/* Change the color of links on hover */
+		.navbar a:hover {
+			background-color: #8e6a3e;
+			color: black;
+		}
+
+		
+        #myTable {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        }
+
+        #myTable th,
+        #myTable td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+        }
+
+        #myTable th {
+        background-color: #cfb673;
+        font-weight: bold;
+        }
+
+	</style>
+
+</head>
+<body>
+    <div class = "navbar">
+        <a href="/vote.html">VOTE</a>
+        <a href="/ListVoters.html">LIST VOTERS</a>
+    </div>
+
+    <div class="container">Welcome to the Decentralized Voting Application</div>
+	
+    <div>
+        <button onclick="connectMetamask()">Connect Metamask</button>
+        <p id="metamasknotification" class="notification success"></p>
+    </div>
+
+    <div class="vote">
+        <span>Vote here</span>
+        <input type = "number" id ="vote" placeholder="Add Index of the Voter ... ">
+        <button onclick="addVote()">Add Vote</button>
+        <p id="cand" class="notification success"></p>
+        
+        <button onclick="voteStatus()">Check Voting Status</button>
+        <p id = "status" class="notification success"></p>
+        <p id = "time" class="notification success"></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To Do Decentralized Application</title>
+    <script src="main.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.1.umd.min.js"
+        type="application/javascript"></script>
+	<title>Centered Form</title>
+	<style>
+.notification {
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.success {
+ /* Green */
+    color: #563a20;
+	font-size:25px;
+	font-style: italic;
+}
+
+.error {
+    background-color: #f2dede; /* Red */
+    color: #a94442;
+}
+
+button {
+	background-color: #e7b467;
+			color: rgb(65, 48, 36);
+			padding: 12px 24px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 20px;
+			font-weight: bold;
+			display: block;
+			margin: 50px auto 0;
+		}
+
+		button:hover {
+			background-color: #8e6a3e;
+		}
+
+		/* Paragraph styles */
+		p {
+			text-align: center;
+			font-size: 20px;
+			margin-top: 50px;
+		}
+
+
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			margin-top: 50px;
+		}
+		
+		input[type=text], select {
+			width: 30%;
+			padding: 12px 20px;
+			margin: 8px 550px;
+			box-sizing: border-box;
+			border: 2px solid #563a20;
+			border-radius: 4px;
+			font-size:18px ;
+		}
+		
+        input[type=number], select {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 2px solid #563a20;
+			border-radius: 4px;
+			font-size: 18px;
+		}
+
+		input[type=submit] {
+			background-color: #e7b467;
+			color: rgb(65, 48, 36);
+			padding: 12px 20px;
+			font-weight: bolder;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size:20px;
+		}
+		
+		input[type=submit]:hover {
+			background-color: #8e6a3e;
+		}
+		
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			margin-top: 50px;
+			font-size:30px;
+		}
+		
+		span {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+/* Style the navigation bar */
+		.navbar {
+			overflow: hidden;
+			background-color: #e7b467;
+			font-family: Arial;
+		}
+
+		/* Style the links inside the navigation bar */
+		.navbar a {
+			float: left;
+			display: block;
+			color: #563a20;
+			text-align: center;
+			padding: 14px 20px;
+			text-decoration: none;
+			font-weight: bolder;
+			font-size:20px;
+		}
+
+		/* Change the color of links on hover */
+		.navbar a:hover {
+			background-color: #8e6a3e;
+			color: black;
+		}
+
+        #myTable {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        }
+
+        #myTable th,
+        #myTable td {
+        border: 1px solid #563a20;
+        padding: 8px;
+        text-align: center;
+        }
+
+        #myTable th {
+        background-color: #e7b467;
+        font-weight: bold;
+		font-size: 20px;
+        }
+
+	</style>
+
+</head>
+<body>
+    <div class = "navbar">
+        <a href="/index.html">VOTE</a>
+        <a href="/ListVoters.html">LIST VOTERS</a>
+    </div>
+
+    <div>
+        <button onclick="connectMetamask()">Connect Metamask</button>
+        <p id="metamasknotification" class="notification success"></p>
+    </div>
+
+    <div class="container">
+        <form method="POST" action="/vote" enctype="multipart/form-data">
+            <span>Add candidate here</span>
+            <input type = "text" name ="vote" placeholder="Add name of candidate ... ">
+            <input type="submit" value = "Add Candidate">
+        </form>
+    </div>
+
+    <div>
+        <p id= "votingStatus" class="notification success"></p>
+    </div>
+
+    <div>
+        <button onclick="getAllCandidates()">List All Candidates</button>
+        <p id="p3" class="notification success"></p>
+    </div>
+
+    <div>
+        <table id="myTable">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Candidate name</th>
+                    <th>Candidate votes</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
